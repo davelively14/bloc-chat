@@ -1,0 +1,62 @@
+*, *::before, *::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Overpass', sans-serif;
+  font-weight: 200;
+  height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 64rem;
+}
+
+.container.narrow {
+  max-width: 56rem;
+}
+
+.clearfix::before, .clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+@media (min-width: 640px) {
+  html { font-size: 112%; }
+
+  .column {
+    float: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* These only display if the width is greater than 640px. When the display */
+  /* is smaller, these values will no longer being active, which will cause */
+  /* the content display normally (full width). */
+
+  .column.full { width: 100%; }
+  .column.two-thirds { width: 66.7% }
+  .column.half { width: 50% }
+  .column.third { width: 33.3% }
+  .column.fourth { width: 25% }
+  .column.flow-opposite { float: right; }
+}
