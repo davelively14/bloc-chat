@@ -1,9 +1,18 @@
 <div class="menu column fourth">
   <h1 class="header">Bloc Chat</h1>
+  <div class="line"> </div>
 
+  <div class="room-add">
+    <h4> Rooms<a><span class="ion-plus-circled"></span></a> </h4>
+  </div>
   <div class="room-list" ng-repeat="room in allRooms">
     <div class="room-name">
-      <p>{{ room.$value }}</p>
+      <p><a><span class="ion-ios-arrow-right"></span> {{ room.$value }}</a></p>
     </div>
   </div>
+  <form name="addRoom" ng-submit="submit()">
+    <label for="roomName">Name</label>
+    <input type="text" name="roomName" ng-model="roomName">
+    <input type="submit" value="Add">
+  </form>
 </div>

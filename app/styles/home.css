@@ -1,5 +1,9 @@
 .room-list .room-name {
-  padding: 0 15px;
+  margin-left: 20px;
+}
+
+.room-add {
+  margin-left: 10px;
 }
 
 .menu {
@@ -9,6 +13,33 @@
   top: 8px;
   right: 8px;
   bottom: 8px;
+}
+
+.ion-ios-arrow-right {
+    margin-right: 5px;
+}
+
+.ion-plus-circled {
+  font-size: 1rem;
+  margin-left: 10px;
+}
+
+.line {
+  width: 80%;
+  margin: 0 auto 15px auto;
+  border-bottom: 1px solid black;
+}
+
+a {
+  cursor: pointer;
+}
+
+hr {
+  width: 80%;
+}
+
+.menu > .header {
+  text-align: center;
 }
 
 @media (min-width: 640px) {
