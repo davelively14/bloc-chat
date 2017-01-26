@@ -31,16 +31,18 @@
   border-bottom: 1px solid black;
 }
 
-a {
-  cursor: pointer;
-}
-
 hr {
   width: 80%;
 }
 
 .menu > .header {
   text-align: center;
+}
+
+@media (max-width: 640px) {
+  .menu {
+    position: relative;
+  }
 }
 
 @media (min-width: 640px) {

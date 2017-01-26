@@ -40,6 +40,16 @@ body {
   clear: both;
 }
 
+a {
+  cursor: pointer;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: gray;
+}
+
 @media (min-width: 640px) {
   html { font-size: 112%; }
 

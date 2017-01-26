@@ -7,6 +7,7 @@
 
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link href="https://fonts.googleapis.com/css?family=Overpass:200,400" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/home.css">
 </head>
@@ -28,11 +29,12 @@
       storageBucket: "bloc-chat-7dd8e.appspot.com",
       messagingSenderId: "915266038877"
     };
-  firebase.initializeApp(config);
+    firebase.initializeApp(config);
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
   <script src="/scripts/app.js"></script>
   <script src="/scripts/services/Room.js"></script>
   <script src="/scripts/controllers/HomeCtrl.js"></script>
+  <script src="/scripts/controllers/ModalNewRoomCtrl.js"></script>
 </body>
 </html>
