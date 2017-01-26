@@ -13,6 +13,7 @@
   top: 8px;
   right: 8px;
   bottom: 8px;
+  overflow: scroll;
 }
 
 .ion-ios-arrow-right {
