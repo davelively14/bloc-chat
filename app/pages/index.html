@@ -11,6 +11,19 @@
   <ui-view></ui-view>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCAajeN5g2k0zJbCojH2EWDz893-kg4bqk",
+      authDomain: "bloc-chat-7dd8e.firebaseapp.com",
+      databaseURL: "https://bloc-chat-7dd8e.firebaseio.com",
+      storageBucket: "bloc-chat-7dd8e.appspot.com",
+      messagingSenderId: "915266038877"
+    };
+  firebase.initializeApp(config);
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
   <script src="/scripts/app.js"></script>
 </body>
