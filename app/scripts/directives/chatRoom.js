@@ -6,11 +6,23 @@
       restrict: 'E',
       scope: { },
       link: function(scope, element, attributes) {
-        scope.roomName = attributes.room;
 
         attributes.$observe("room", function(newValue) {
-          console.log(newValue['$value']);
-          scope.roomName = newValue;
+
+          // Only runs once we know the database is loaded, which is where we
+          // want all our code.
+          if (newValue) {
+            scope.room = JSON.parse(newValue)
+            scope.roomName = scope.room.name;
+
+            // Temporary. I don't think I manually entered the data into the
+            // firebase db correctly. The zero index of the array is empty.
+            scope.messages = []
+            for (var i = 1; i < scope.room.messages.length; i++) {
+              scope.messages.push(scope.room.messages[i])
+            }
+
+          }
         })
       }
     };

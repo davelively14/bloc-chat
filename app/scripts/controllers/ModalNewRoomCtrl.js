@@ -1,7 +1,7 @@
 (function() {
   function ModalNewRoomCtrl($scope, $uibModalInstance, Room) {
     $scope.submit = function() {
-      Room.add($scope.roomName);
+      Room.add({name: $scope.roomName});
       $uibModalInstance.close();
     };
 
