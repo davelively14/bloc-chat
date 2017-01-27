@@ -1,9 +1,10 @@
 (function() {
-  function ModalSignInCtrl($scope, $uibModalInstance, $cookies) {
+  function ModalSignInCtrl($scope, $uibModalInstance, $cookies, canClose) {
+    $scope.canClose = canClose;
+
     $scope.submit = function() {
       $cookies.put('blocChatCurrentUser', $scope.name);
       $uibModalInstance.close();
-      console.log($cookies.get('blocChatCurrentUser'));
     }
 
     $scope.cancel = function() {

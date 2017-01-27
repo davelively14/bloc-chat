@@ -25,6 +25,15 @@
     </div>
   </div>
   <div class="room-footer">
-    <button type="button" name="button" ng-click="logout()">Logout</button>
+    <button type="button" name="edit-user" ng-click="login()" ng-show="currentUser" class="user-edit btn btn-primary">
+      <span class="ion-edit"> {{ currentUser }}</span>
+    </button>
+    <form class="" action="index.html" method="post">
+      <div class="message-textarea-container">
+        <textarea name="message" class="message-textarea" placeholder="Type your message..."></textarea>
+      </div>
+      <input type="submit" value="Send" class="message-send btn btn-primary">
+    </form>
+    <button type="button" name="logout" ng-click="logout()" class="temp-logout btn btn-alert">Logout for testing</button>
   </div>
 </div>

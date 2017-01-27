@@ -9,11 +9,13 @@
 .menu {
   background-color: #BBBBBB;
   position: fixed;
-  left: 8px;
-  top: 8px;
+  left: 7px;
+  top: 0px;
   right: 8px;
-  bottom: 8px;
+  bottom: 0px;
   overflow: scroll;
+  border-right: 1px solid black;
+  z-index: 1
 }
 
 .ion-ios-arrow-right {

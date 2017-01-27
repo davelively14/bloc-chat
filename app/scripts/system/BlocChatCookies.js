@@ -8,9 +8,14 @@
         templateUrl: '/templates/modals/modal_sign_in.html',
         controller: 'ModalSignInCtrl',
         size: "sm",
+        backdrop: 'static',
+        keyboard: false,
         resolve: {
-          items: function() {
+          cookie: function() {
             return $cookies;
+          },
+          canClose: function() {
+            return false;
           }
         }
       });

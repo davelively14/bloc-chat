@@ -1,11 +1,14 @@
 (function() {
-  var chatRoom = function($cookies) {
+  var chatRoom = function($cookies, $uibModal) {
     return {
       templateUrl: '/templates/directives/chat_room.html',
       replace: true,
       restrict: 'E',
       scope: { },
       link: function(scope, element, attributes) {
+        scope.$watch(function() { return $cookies.get('blocChatCurrentUser') }, function(newValue) {
+          scope.currentUser = $cookies.get('blocChatCurrentUser');
+        });
 
         attributes.$observe("room", function(newValue) {
 
@@ -27,13 +30,16 @@
 
             scope.login = function() {
               var modalInstance = $uibModal.open({
-                animation: $scope.animationsEnabled,
+                animation: true,
                 templateUrl: '/templates/modals/modal_sign_in.html',
                 controller: 'ModalSignInCtrl',
                 size: "sm",
                 resolve: {
-                  items: function() {
+                  cookie: function() {
                     return $cookies;
+                  },
+                  canClose: function() {
+                    return true;
                   }
                 }
               });
@@ -41,6 +47,7 @@
 
             scope.logout = function() {
               $cookies.remove('blocChatCurrentUser');
+              scope.currentUser = null;
             };
           }
         })
@@ -50,5 +57,5 @@
 
   angular
     .module('blocChat')
-    .directive('chatRoom', ['$cookies', chatRoom]);
+    .directive('chatRoom', ['$cookies', '$uibModal', chatRoom]);
 })();
