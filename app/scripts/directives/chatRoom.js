@@ -1,5 +1,5 @@
 (function() {
-  var chatRoom = function() {
+  var chatRoom = function($cookies) {
     return {
       templateUrl: '/templates/directives/chat_room.html',
       replace: true,
@@ -25,7 +25,23 @@
               }
             }
 
-            
+            scope.login = function() {
+              var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: '/templates/modals/modal_sign_in.html',
+                controller: 'ModalSignInCtrl',
+                size: "sm",
+                resolve: {
+                  items: function() {
+                    return $cookies;
+                  }
+                }
+              });
+            };
+
+            scope.logout = function() {
+              $cookies.remove('blocChatCurrentUser');
+            };
           }
         })
       }
@@ -34,5 +50,5 @@
 
   angular
     .module('blocChat')
-    .directive('chatRoom', chatRoom);
+    .directive('chatRoom', ['$cookies', chatRoom]);
 })();

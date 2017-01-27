@@ -11,7 +11,7 @@
       $scope.open = function() {
         var modalInstance = $uibModal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: '/templates/modal_new_room.html',
+          templateUrl: '/templates/modals/modal_new_room.html',
           controller: 'ModalNewRoomCtrl',
           size: "sm",
           resolve: {
@@ -26,7 +26,6 @@
         $scope.currentChatRoom = $scope.allRooms.$getRecord(roomId);
       };
     });
-
 
   }
 
