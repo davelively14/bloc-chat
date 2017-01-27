@@ -18,10 +18,14 @@
             // Temporary. I don't think I manually entered the data into the
             // firebase db correctly. The zero index of the array is empty.
             scope.messages = []
-            for (var i = 1; i < scope.room.messages.length; i++) {
-              scope.messages.push(scope.room.messages[i])
+
+            if (scope.room.messages) {
+              for (var i = 1; i < scope.room.messages.length; i++) {
+                scope.messages.push(scope.room.messages[i])
+              }
             }
 
+            
           }
         })
       }

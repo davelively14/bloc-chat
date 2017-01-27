@@ -21,6 +21,10 @@
           }
         });
       };
+
+      $scope.enterRoom = function(roomId) {
+        $scope.currentChatRoom = $scope.allRooms.$getRecord(roomId);
+      };
     });
 
 

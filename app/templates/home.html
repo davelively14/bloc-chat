@@ -7,7 +7,7 @@
   </div>
   <div class="room-list" ng-repeat="room in allRooms">
     <div class="room-name">
-      <p><a><span class="ion-ios-arrow-right"></span> {{ room.name }}</a></p>
+      <p><a ng-click="enterRoom(room.$id)"><span class="ion-ios-arrow-right"></span> {{ room.name }}</a></p>
     </div>
   </div>
 </div>

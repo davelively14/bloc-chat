@@ -3,6 +3,25 @@
     <h1>{{ roomName }}</h1>
   </div>
   <div class="room-body">
-    <p>Dave</p>
+    <div ng-repeat="message in messages">
+      <div class="room-message-even" ng-show="$index %2 == 0">
+        <h5>{{ message.username }}</h5>
+        <table class="message-table">
+          <tr>
+            <td width="80%">{{ message.content }}</td>
+            <td width="20%" class="message-table-time">{{ message.setAt }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="room-message-odd" ng-show="$index %2 == 1">
+        <h5>{{ message.username }}</h5>
+        <table class="message-table">
+          <tr>
+            <td width="80%">{{ message.content }}</td>
+            <td width="20%" class="message-table-time">{{ message.setAt }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
