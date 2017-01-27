@@ -1,11 +1,13 @@
 <div class="modal-header">
-  New Room
-  <a class="close" ng-click="cancel()"><span class="ion-close"></span></a>
+  <h4>
+    New Room
+    <a class="close" ng-click="cancel()"><span class="ion-close"></span></a>
+  </h4>
 </div>
 <div class="modal-body">
   <form name="addRoom" ng-submit="submit()">
     <label for="roomName">Name</label>
     <input type="text" name="roomName" ng-model="roomName">
-    <input type="submit" value="Add">
+    <input type="submit" value="Add" class="btn btn-xs btn-primary">
   </form>
 </div>

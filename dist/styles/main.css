@@ -64,6 +64,7 @@ a:hover {
   /* the content display normally (full width). */
 
   .column.full { width: 100%; }
+  .column.three-fourths { width: 75% }
   .column.two-thirds { width: 66.7% }
   .column.half { width: 50% }
   .column.third { width: 33.3% }
