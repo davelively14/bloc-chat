@@ -34,6 +34,10 @@
                   content: scope.chatMessage,
                   setAt: date.toLocaleTimeString()
                 });
+
+                obj.$save();
+
+                scope.chatMessage = '';
               }
             });
 
