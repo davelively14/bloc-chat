@@ -21,6 +21,20 @@
             obj.$loaded().then(function() {
               scope.roomName = obj.name;
               scope.messages = obj.messages;
+
+              scope.sendMessage = function() {
+                var date = new Date();
+
+                if (!obj.messages) {
+                  obj.messages = [];
+                }
+
+                obj.messages.push({
+                  username: scope.currentUser,
+                  content: scope.chatMessage,
+                  setAt: date.toLocaleTimeString()
+                });
+              }
             });
 
             scope.login = function() {
@@ -45,26 +59,6 @@
               scope.currentUser = null;
             };
 
-            scope.sendMessage = function() {
-              console.log(scope.roomId);
-              var obj = Chat.getObj(scope.roomId);
-              obj.$bindTo(scope, "roomData").then(function() {
-                var date = new Date();
-
-                if (!scope.roomData.messages) {
-                  scope.roomData.messages = [];
-                }
-
-                scope.roomData.messages.push({
-                  username: scope.currentUser,
-                  content: scope.chatMessage,
-                  setAt: date.toLocaleTimeString()
-                });
-
-                scope.messages = scope.roomData.messages
-                console.log(scope.roomData);
-              });
-            }
           }
         })
       }

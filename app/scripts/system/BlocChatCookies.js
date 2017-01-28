@@ -2,7 +2,6 @@
   function BlocChatCookies($cookies, $uibModal) {
     var currentUser = $cookies.get('blocChatCurrentUser');
     if (!currentUser || currentUser === '') {
-      console.log("Not logged in");
       $uibModal.open({
         animation: true,
         templateUrl: '/templates/modals/modal_sign_in.html',
