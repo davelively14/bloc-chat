@@ -41,29 +41,25 @@
               }
             });
 
-            scope.login = function() {
-              var modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: '/templates/modals/modal_sign_in.html',
-                controller: 'ModalSignInCtrl',
-                size: "sm",
-                resolve: {
-                  cookie: function() {
-                    return $cookies;
-                  },
-                  canClose: function() {
-                    return true;
-                  }
+
+          };
+
+          scope.login = function() {
+            $uibModal.open({
+              animation: true,
+              templateUrl: '/templates/modals/modal_sign_in.html',
+              controller: 'ModalSignInCtrl',
+              size: "sm",
+              resolve: {
+                cookie: function() {
+                  return $cookies;
+                },
+                canClose: function() {
+                  return true;
                 }
-              });
-            };
-
-            scope.logout = function() {
-              $cookies.remove('blocChatCurrentUser');
-              scope.currentUser = null;
-            };
-
-          }
+              }
+            });
+          };
         })
       }
     };

@@ -10,5 +10,8 @@
       <p><a ng-click="enterRoom(room.$id)"><span class="ion-ios-arrow-right"></span> {{ room.name }}</a></p>
     </div>
   </div>
+  <div class="logout-section">
+    <button type="button" ng-click="logout()" ng-show="currentUser">Logout</button>
+  </div>
 </div>
 <chat-room room="{{ currentChatRoom }}"></chat-room>

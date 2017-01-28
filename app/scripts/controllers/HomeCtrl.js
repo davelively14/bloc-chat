@@ -1,5 +1,5 @@
 (function() {
-  function HomeCtrl($scope, Room, $uibModal) {
+  function HomeCtrl($scope, Room, $uibModal, $cookies) {
     $scope.allRooms = Room.all;
     $scope.animationsEnabled = true;
 
@@ -24,9 +24,35 @@
       };
     });
 
+    $scope.logout = function() {
+      firebase.auth().signOut().then(function() {
+        $cookies.remove('blocChatCurrentUser');
+        $scope.$apply();
+        $uibModal.open({
+          animation: true,
+          templateUrl: '/templates/modals/modal_sign_in.html',
+          controller: 'ModalSignInCtrl',
+          size: "sm",
+          backdrop: 'static',
+          keyboard: false,
+          resolve: {
+            cookie: function() {
+              return $cookies;
+            },
+            canClose: function() {
+              return false;
+            }
+          }
+        });
+      }, function(error) {
+        console.log(error.message);
+      });
+
+    }
+
   }
 
   angular
     .module('blocChat')
-    .controller('HomeCtrl', ['$scope', 'Room', '$uibModal', HomeCtrl]);
+    .controller('HomeCtrl', ['$scope', 'Room', '$uibModal', '$cookies', HomeCtrl]);
 })();

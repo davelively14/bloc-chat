@@ -22,6 +22,10 @@ body {
   height: 100%;
 }
 
+.form-control {
+  margin-bottom: 5px;
+}
+
 .container {
   margin: 0 auto;
   max-width: 64rem;

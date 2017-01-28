@@ -31,12 +31,9 @@
     <button type="button" name="edit-user" ng-click="login()" ng-show="currentUser" class="user-edit btn btn-primary">
       <span class="ion-edit"> {{ currentUser }}</span>
     </button>
-    <!-- <form class="" method="post"> -->
-      <div class="message-textarea-container">
-        <textarea bc-enter="sendMessage()" ng-model="chatMessage" class="message-textarea" placeholder="Type your message..."></textarea>
-      </div>
-      <button class="message-send btn btn-primary" ng-click="sendMessage()">Send</button>
-    <!-- </form> -->
-    <button type="button" name="logout" ng-click="logout()" class="temp-logout btn btn-alert">Logout for testing</button>
+    <div class="message-textarea-container">
+      <textarea bc-enter="sendMessage()" ng-model="chatMessage" class="message-textarea" placeholder="Type your message..."></textarea>
+    </div>
+    <button class="message-send btn btn-primary" ng-click="sendMessage()">Send</button>
   </div>
 </div>
