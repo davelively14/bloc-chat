@@ -1,5 +1,5 @@
 (function() {
-  function HomeCtrl($scope, Room, $uibModal, $cookies) {
+  function HomeCtrl($scope, Room, User, $uibModal, $cookies) {
     $scope.allRooms = Room.all;
     $scope.animationsEnabled = true;
 
@@ -41,6 +41,9 @@
             },
             canClose: function() {
               return false;
+            },
+            user: function() {
+              return User;
             }
           }
         });
@@ -54,5 +57,5 @@
 
   angular
     .module('blocChat')
-    .controller('HomeCtrl', ['$scope', 'Room', '$uibModal', '$cookies', HomeCtrl]);
+    .controller('HomeCtrl', ['$scope', 'Room', 'User', '$uibModal', '$cookies', HomeCtrl]);
 })();

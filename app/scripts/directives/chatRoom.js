@@ -1,5 +1,5 @@
 (function() {
-  var chatRoom = function($cookies, $uibModal, Chat) {
+  var chatRoom = function($cookies, $uibModal, Chat, User) {
     return {
       templateUrl: '/templates/directives/chat_room.html',
       replace: true,
@@ -7,7 +7,10 @@
       scope: { },
       link: function(scope, element, attributes) {
         scope.$watch(function() { return $cookies.get('blocChatCurrentUser') }, function(newValue) {
-          scope.currentUser = $cookies.get('blocChatCurrentUser');
+          if($cookies.get('blocChatCurrentUser')) {
+            scope.currentUser = User.get($cookies.get('blocChatCurrentUser'));
+            console.log(scope.currentUser);
+          }
         });
 
         attributes.$observe("room", function(newValue) {
@@ -30,7 +33,7 @@
                 }
 
                 obj.messages.push({
-                  username: scope.currentUser,
+                  username: scope.currentUser.userName,
                   content: scope.chatMessage,
                   setAt: date.toLocaleTimeString()
                 });
@@ -56,6 +59,9 @@
                 },
                 canClose: function() {
                   return true;
+                },
+                user: function() {
+                  return User;
                 }
               }
             });
@@ -67,5 +73,5 @@
 
   angular
     .module('blocChat')
-    .directive('chatRoom', ['$cookies', '$uibModal', 'Chat', chatRoom]);
+    .directive('chatRoom', ['$cookies', '$uibModal', 'Chat', 'User', chatRoom]);
 })();

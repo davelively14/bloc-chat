@@ -29,7 +29,7 @@
   </div>
   <div class="room-footer">
     <button type="button" name="edit-user" ng-click="login()" ng-show="currentUser" class="user-edit btn btn-primary">
-      <span class="ion-edit"> {{ currentUser }}</span>
+      <span class="ion-edit"> {{ currentUser.userName }}</span>
     </button>
     <div class="message-textarea-container">
       <textarea bc-enter="sendMessage()" ng-model="chatMessage" class="message-textarea" placeholder="Type your message..."></textarea>

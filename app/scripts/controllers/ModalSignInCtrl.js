@@ -1,5 +1,5 @@
 (function() {
-  function ModalSignInCtrl($scope, $uibModalInstance, $cookies, canClose) {
+  function ModalSignInCtrl($scope, $uibModalInstance, $cookies, User, canClose) {
     $scope.canClose = canClose;
     $scope.default = true;
     $scope.passWordMatch = true;
@@ -24,8 +24,14 @@
           firebase.auth().createUserWithEmailAndPassword($scope.email, $scope.password).then(function() {
             firebase.auth().onAuthStateChanged(function(user) {
               if (user) {
-                user.userName = $scope.userName;
-                $cookies.put('blocChatCurrentUser', user.userName);
+                var userRecord = ({
+                  uid: user.uid,
+                  email: user.email,
+                  userName: $scope.userName,
+                  admin: false
+                });
+                User.add(userRecord);
+                $cookies.put('blocChatCurrentUser', userRecord.uid);
               } else {
                 $cookies.remove('blocChatCurrentUser');
               }
@@ -48,7 +54,11 @@
         firebase.auth().signInWithEmailAndPassword($scope.email, $scope.password).then(function() {
           firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
-              $cookies.put('blocChatCurrentUser', user.email.split("@")[0]);
+              var userRecord = User.get(user.uid);
+              userRecord.$loaded().then(function() {
+                $cookies.put('blocChatCurrentUser', userRecord.uid);
+                console.log($cookies.get('blocChatCurrentUser'));
+              });
             } else {
               $cookies.remove('blocChatCurrentUser');
             }
