@@ -25,7 +25,15 @@
   border-top: 1px solid black;
 }
 
+.no-room-selected {
+  position: relative;
+  height: 100%;
+  top: 30%;
+  text-align: center;
+}
+
 .message-table {
+  table-layout: fixed;
   width: 100%;
 }
 

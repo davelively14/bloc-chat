@@ -1,5 +1,5 @@
 (function() {
-  var chatRoom = function($cookies, $uibModal) {
+  var chatRoom = function($cookies, $uibModal, Chat) {
     return {
       templateUrl: '/templates/directives/chat_room.html',
       replace: true,
@@ -15,18 +15,13 @@
           // Only runs once we know the database is loaded, which is where we
           // want all our code.
           if (newValue) {
-            scope.room = JSON.parse(newValue)
-            scope.roomName = scope.room.name;
+            scope.roomId = newValue;
+            var obj = Chat.getObj(newValue);
 
-            // Temporary. I don't think I manually entered the data into the
-            // firebase db correctly. The zero index of the array is empty.
-            scope.messages = []
-
-            if (scope.room.messages) {
-              for (var i = 1; i < scope.room.messages.length; i++) {
-                scope.messages.push(scope.room.messages[i])
-              }
-            }
+            obj.$loaded().then(function() {
+              scope.roomName = obj.name;
+              scope.messages = obj.messages;
+            });
 
             scope.login = function() {
               var modalInstance = $uibModal.open({
@@ -49,6 +44,27 @@
               $cookies.remove('blocChatCurrentUser');
               scope.currentUser = null;
             };
+
+            scope.sendMessage = function() {
+              console.log(scope.roomId);
+              var obj = Chat.getObj(scope.roomId);
+              obj.$bindTo(scope, "roomData").then(function() {
+                var date = new Date();
+
+                if (!scope.roomData.messages) {
+                  scope.roomData.messages = [];
+                }
+
+                scope.roomData.messages.push({
+                  username: scope.currentUser,
+                  content: scope.chatMessage,
+                  setAt: date.toLocaleTimeString()
+                });
+
+                scope.messages = scope.roomData.messages
+                console.log(scope.roomData);
+              });
+            }
           }
         })
       }
@@ -57,5 +73,5 @@
 
   angular
     .module('blocChat')
-    .directive('chatRoom', ['$cookies', '$uibModal', chatRoom]);
+    .directive('chatRoom', ['$cookies', '$uibModal', 'Chat', chatRoom]);
 })();
