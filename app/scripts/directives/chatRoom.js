@@ -8,7 +8,7 @@
       link: function(scope, element, attributes) {
         scope.$watch(function() { return $cookies.get('blocChatCurrentUser') }, function(newValue) {
           if($cookies.get('blocChatCurrentUser')) {
-            scope.currentUser = User.get($cookies.get('blocChatCurrentUser'));
+            scope.currentUser = User.getCurrentUser();
           }
         });
 

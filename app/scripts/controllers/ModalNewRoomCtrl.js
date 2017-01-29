@@ -1,6 +1,7 @@
 (function() {
-  function ModalNewRoomCtrl($scope, $uibModalInstance, Room, User, $cookies) {
+  function ModalNewRoomCtrl($scope, $uibModalInstance, Room, User, $cookies, private) {
     $scope.currentUser = User.get($cookies.get('blocChatCurrentUser'));
+    $scope.private = private;
 
     $scope.currentUser.$loaded().then(function() {
       $scope.admin = $scope.currentUser.admin;

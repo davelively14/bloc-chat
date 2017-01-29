@@ -1,5 +1,5 @@
 (function() {
-  function User($firebaseObject, $firebaseArray) {
+  function User($firebaseObject, $firebaseArray, $cookies) {
     var User = {};
 
     var ref = firebase.database().ref("users");
@@ -8,6 +8,10 @@
     User.get = function(userId) {
       var userRef = ref.child(userId);
       return $firebaseObject(userRef);
+    };
+
+    User.getCurrentUser = function() {
+      return User.get($cookies.get('blocChatCurrentUser'));
     };
 
     User.add = function(userRecord) {
@@ -23,5 +27,5 @@
 
   angular
     .module('blocChat')
-    .factory('User', ['$firebaseObject', '$firebaseArray', User])
+    .factory('User', ['$firebaseObject', '$firebaseArray', '$cookies', User])
 })();
