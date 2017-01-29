@@ -40,6 +40,7 @@
                 obj.$save();
 
                 scope.chatMessage = '';
+                scope.messages = obj.messages;
               }
             });
 
