@@ -12,8 +12,14 @@
           controller: 'ModalNewRoomCtrl',
           size: "sm",
           resolve: {
-            items: function () {
+            rooms: function() {
               return Room;
+            },
+            user: function() {
+              return User;
+            },
+            cookies: function() {
+              return $cookies;
             }
           }
         });
@@ -23,36 +29,6 @@
         $scope.currentChatRoom = roomId;
       };
     });
-
-    $scope.logout = function() {
-      firebase.auth().signOut().then(function() {
-        $cookies.remove('blocChatCurrentUser');
-        $scope.$apply();
-        $uibModal.open({
-          animation: true,
-          templateUrl: '/templates/modals/modal_sign_in.html',
-          controller: 'ModalSignInCtrl',
-          size: "sm",
-          backdrop: 'static',
-          keyboard: false,
-          resolve: {
-            cookie: function() {
-              return $cookies;
-            },
-            canClose: function() {
-              return false;
-            },
-            user: function() {
-              return User;
-            }
-          }
-        });
-      }, function(error) {
-        console.log(error.message);
-      });
-
-    }
-
   }
 
   angular

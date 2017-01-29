@@ -1,6 +1,6 @@
 (function() {
-  function ModalSignInCtrl($scope, $uibModalInstance, $cookies, User, canClose) {
-    $scope.canClose = canClose;
+  function ModalSignInCtrl($scope, $uibModalInstance, $cookies, User, signedIn) {
+    $scope.signedIn = signedIn;
     $scope.default = true;
     $scope.passWordMatch = true;
 
@@ -57,7 +57,6 @@
               var userRecord = User.get(user.uid);
               userRecord.$loaded().then(function() {
                 $cookies.put('blocChatCurrentUser', userRecord.uid);
-                console.log($cookies.get('blocChatCurrentUser'));
               });
             } else {
               $cookies.remove('blocChatCurrentUser');
@@ -70,7 +69,24 @@
           });
         })
       }
-    }
+    };
+
+    $scope.logout = function() {
+
+      firebase.auth().signOut().then(function() {
+        $cookies.remove('blocChatCurrentUser');
+        $scope.signedIn = false;
+        $scope.default = true;
+        $scope.passWordMatch = true;
+        $scope.email = '';
+        $scope.password = '';
+        $scope.passwordConfirm = '';
+        $scope.userName = '';
+        $scope.$apply();
+      }, function(error) {
+        console.log(error.message);
+      });
+    };
   }
 
   angular

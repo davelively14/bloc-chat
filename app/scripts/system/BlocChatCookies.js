@@ -13,7 +13,7 @@
           cookie: function() {
             return $cookies;
           },
-          canClose: function() {
+          signedIn: function() {
             return false;
           }
         }

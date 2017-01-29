@@ -1,8 +1,9 @@
 <div class="modal-header">
   <h4>
-    <span ng-show="default">Sign In</span>
+    <span ng-show="default && !signedIn">Sign In</span>
+    <span ng-show="default && signedIn">Change User</span>
     <span ng-show="!default">Create User</span>
-    <a class="close" ng-click="cancel()" ng-show="canClose"><span class="ion-close"></span></a>
+    <a class="close" ng-click="cancel()" ng-show="signedIn"><span class="ion-close"></span></a>
   </h4>
 </div>
 <div class="modal-body" ng-show="default">
@@ -15,6 +16,7 @@
     <input type="submit" value="Log in" class="btn btn-primary btn-block" ng-click="logIn()">
   </form>
   <p>Not a member? <a ng-click="toggleNewUser()">Create new account</a> </p>
+  <p class="text-center" ng-show="signedIn"> <button ng-click="logout()" class="btn btn-danger btn-xs">Logout</button> </p>
 </div>
 <div class="modal-body" ng-show="!default">
   <form name="createUserForm" method="post">

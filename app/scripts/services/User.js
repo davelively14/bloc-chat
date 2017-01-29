@@ -3,7 +3,6 @@
     var User = {};
 
     var ref = firebase.database().ref("users");
-    var dbRef = firebase.database();
     var users = $firebaseObject(ref);
 
     User.get = function(userId) {
@@ -13,6 +12,10 @@
 
     User.add = function(userRecord) {
       firebase.database().ref('users/' + userRecord.uid).set(userRecord);
+    };
+
+    User.all = function() {
+      return users;
     };
 
     return User;

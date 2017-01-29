@@ -6,8 +6,11 @@
 </div>
 <div class="modal-body">
   <form name="addRoom" ng-submit="submit()">
-    <label for="roomName">Name</label>
-    <input type="text" name="roomName" ng-model="roomName">
-    <input type="submit" value="Add" class="btn btn-xs btn-primary">
+    <input type="text" ng-model="roomName" placeholder="Room name..." class="form-control">
+    <p>
+      Private room?
+      <input type="checkbox" ng-model="private" ng-show="admin">
+      <input type="submit" value="Add" class="btn btn-sm btn-primary pull-right">
+    </p>
   </form>
 </div>

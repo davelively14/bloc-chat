@@ -9,7 +9,6 @@
         scope.$watch(function() { return $cookies.get('blocChatCurrentUser') }, function(newValue) {
           if($cookies.get('blocChatCurrentUser')) {
             scope.currentUser = User.get($cookies.get('blocChatCurrentUser'));
-            console.log(scope.currentUser);
           }
         });
 
@@ -57,7 +56,7 @@
                 cookie: function() {
                   return $cookies;
                 },
-                canClose: function() {
+                signedIn: function() {
                   return true;
                 },
                 user: function() {
