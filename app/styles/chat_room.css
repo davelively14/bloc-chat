@@ -1,34 +1,37 @@
-.room {
-  height: 100%;
-  margin-right: 10px;
-}
-
 .room-header {
-  position: relative;
+  position: fixed;
+  top: 0;
   height: 75px;
+  right: 0;
+  width: inherit;
+  border-bottom: 1px solid black;
 }
 
 .room-body {
   position: fixed;
   top: 75px;
   bottom: 50px;
+  right: 0;
+  width: inherit;
   overflow: scroll;
 }
 
 .room-footer {
   position: fixed;
   bottom: 0;
+  right: 0;
   height: 50px;
   width: inherit;
   z-index: 1;
   background-color: #FFFFFF;
-  border-top: 1px solid black;
 }
 
 .no-room-selected {
-  position: relative;
+  position: fixed;
   height: 100%;
-  top: 30%;
+  width: 75%;
+  right: 0;
+  margin: auto;
   text-align: center;
 }
 
@@ -47,14 +50,15 @@
   margin-top: 0;
   padding: 5px 10px;
   position: relative;
+  border-bottom: 1px solid black
 }
 
 .room-message-odd {
-  background-color: #EEEEEE;
+  background-color: #FFFFFF;
 }
 
 .room-message-even {
-  background-color: #FFFFFF;
+  background-color: rgb(226, 226, 226);
 }
 
 .message-textarea-container {
@@ -94,22 +98,33 @@
   bottom: 150px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .room-header {
     position: relative;
+    height: auto;
   }
+
   .room-body {
     position: relative;
     padding-bottom: 50px;
     overflow: scroll;
+    top: auto;
+    padding-top: 75px;
   }
+
   .room-footer {
     width: 100%;
   }
+
   .message-textarea-container {
     left: 100px;
   }
+
   .user-edit {
     width: 90px;
+  }
+
+  .no-room-selected {
+    width: 100%;
   }
 }

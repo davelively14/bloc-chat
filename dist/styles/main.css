@@ -51,10 +51,27 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: gray;
+  color: #6B4700;
 }
 
-@media (min-width: 640px) {
+.btn-primary {
+  color: black;
+  background-color: #FFAA00;
+}
+
+.btn-primary:hover {
+  color: white;
+  background-color: #6B4700;
+}
+
+@media (max-width: 768px) {
+  html, body {
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+@media (min-width: 768px) {
   html { font-size: 112%; }
 
   .column {

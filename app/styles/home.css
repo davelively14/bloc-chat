@@ -7,11 +7,9 @@
 }
 
 .menu {
-  background-color: #BBBBBB;
+  background-color: #FFAA00;
   position: fixed;
-  left: 7px;
   top: 0px;
-  right: 8px;
   bottom: 0px;
   overflow: scroll;
   border-right: 1px solid black;
@@ -41,15 +39,9 @@ hr {
   text-align: center;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .menu {
     position: relative;
-  }
-}
-
-@media (min-width: 640px) {
-  .menu > .header {
-    font-size: 4vw;
   }
 }
 

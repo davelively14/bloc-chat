@@ -1,23 +1,25 @@
-<div class="menu column fourth">
-  <h1 class="header">Bloc Chat</h1>
-  <div class="line"> </div>
+<div class="row">
+  <div class="menu col-sm-3">
+    <h1 class="header">Bloc Chat</h1>
+    <div class="line"> </div>
 
-  <div class="room-add">
-    <h4> Public Rooms<a ng-click="open(false)"><span class="ion-plus-circled"></span></a> </h4>
-  </div>
-  <div class="room-list" ng-repeat="room in publicRooms">
-    <div class="room-name">
-      <p><a ng-click="enterRoom(room.$id)"><span class="ion-ios-arrow-right"></span> {{ room.name }}</a></p>
+    <div class="room-add">
+      <h4> Public Rooms<a ng-click="open(false)"><span class="ion-plus-circled"></span></a> </h4>
+    </div>
+    <div class="room-list" ng-repeat="room in publicRooms">
+      <div class="room-name">
+        <p><a ng-click="enterRoom(room.$id)"><span class="ion-ios-arrow-right"></span> {{ room.name }}</a></p>
+      </div>
+    </div>
+
+    <div class="room-add">
+      <h4> Private Rooms<a ng-click="open(true)"><span class="ion-plus-circled"></span></a> </h4>
+    </div>
+    <div class="room-list" ng-repeat="room in privateRooms">
+      <div class="room-name">
+        <p><a ng-click="enterRoom(room.$id)"><span class="ion-ios-arrow-right"></span> {{ room.name }}</a></p>
+      </div>
     </div>
   </div>
-
-  <div class="room-add">
-    <h4> Private Rooms<a ng-click="open(true)"><span class="ion-plus-circled"></span></a> </h4>
-  </div>
-  <div class="room-list" ng-repeat="room in privateRooms">
-    <div class="room-name">
-      <p><a ng-click="enterRoom(room.$id)"><span class="ion-ios-arrow-right"></span> {{ room.name }}</a></p>
-    </div>
-  </div>
+  <chat-room room="{{ currentChatRoom }}"></chat-room>
 </div>
-<chat-room room="{{ currentChatRoom }}"></chat-room>
