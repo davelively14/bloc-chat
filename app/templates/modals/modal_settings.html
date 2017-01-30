@@ -20,7 +20,8 @@
         <td ng-show="user.member">Member</td>
         <td ng-show="!user.member">Not member</td>
         <td>
-          <button type="button" class="btn btn-xs btn-danger" ng-show="user.member">Remove</button>
+          <button type="button" class="btn btn-xs btn-danger" ng-show="user.member && !user.owner">Remove</button>
+          <span ng-show="user.member && user.owner">--You--</span>
           <button type="button" class="btn btn-xs btn-primary" ng-show="!user.member">Add</button>
         </td>
       </tr>
