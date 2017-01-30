@@ -51,17 +51,17 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: #6B4700;
+  color: rgb(156, 103, 0);
 }
 
 .btn-primary {
   color: black;
-  background-color: #FFAA00;
+  background-color: rgb(255, 171, 0);
 }
 
 .btn-primary:hover {
   color: white;
-  background-color: #6B4700;
+  background-color: rgb(156, 103, 0);
 }
 
 @media (max-width: 768px) {

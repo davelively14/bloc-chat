@@ -17,15 +17,18 @@
           // Only runs once we know the database is loaded, which is where we
           // want all our code.
           if (newValue) {
-            scope.roomId = newValue;
             var obj = Chat.getObj(newValue);
+            scope.roomId = newValue;
 
             obj.$loaded().then(function() {
+              scope.private = obj.private;
               scope.roomName = obj.name;
               scope.messages = obj.messages;
 
               scope.sendMessage = function() {
                 var date = new Date();
+
+                console.log(obj.messages);
 
                 if (!obj.messages) {
                   obj.messages = [];

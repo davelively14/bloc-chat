@@ -5,8 +5,10 @@
     var ref = firebase.database().ref("rooms");
 
     Chat.getObj = function(roomId) {
-      var roomRef = ref.child(roomId);
-      return $firebaseObject(roomRef);
+      if (roomId) {
+        var roomRef = ref.child(roomId);
+        return $firebaseObject(roomRef);
+      }
     };
 
     return Chat;
