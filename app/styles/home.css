@@ -7,13 +7,17 @@
 }
 
 .menu {
-  background-color: #FFAA00;
+  background-color: rgb(255, 171, 0);
   position: fixed;
   top: 0px;
   bottom: 0px;
   overflow: scroll;
   border-right: 1px solid black;
   z-index: 1
+}
+
+.header > .bloc-img {
+  width: 11vw;
 }
 
 .ion-ios-arrow-right {
@@ -42,6 +46,10 @@ hr {
 @media (max-width: 768px) {
   .menu {
     position: relative;
+  }
+
+  .header > .bloc-img {
+    width: 30vw;
   }
 }
 
