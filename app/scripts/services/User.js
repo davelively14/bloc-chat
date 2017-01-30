@@ -3,7 +3,7 @@
     var User = {};
 
     var ref = firebase.database().ref("users");
-    var users = $firebaseObject(ref);
+    var users = $firebaseArray(ref);
 
     User.get = function(userId) {
       var userRef = ref.child(userId);

@@ -5,7 +5,7 @@
   <div class="room-header" ng-show="roomId">
     <h1>
       {{ roomName }}
-      <a><span class="ion-gear-b settings" ng-show="private"></span></a>
+      <a ng-click="settings()"><span class="ion-gear-b settings" ng-show="private"></span></a>
     </h1>
   </div>
   <div class="room-body">

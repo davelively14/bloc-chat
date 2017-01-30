@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <h4>
+    Manage Access
+    <a class="close" ng-click="cancel()"><span class="ion-close"></span></a>
+  </h4>
+</div>
+<div class="modal-body">
+  <p>Add and remove users who are authorized to enter this chat room.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Status</th>
+        <th>Manage</th>
+      </tr>
+    </thead>
+    <tbody class="table-body-users">
+      <tr ng-repeat="user in users">
+        <td>{{ user.userName }}</td>
+        <td ng-show="user.member">Member</td>
+        <td ng-show="!user.member">Not member</td>
+        <td>
+          <button type="button" class="btn btn-xs btn-danger" ng-show="user.member">Remove</button>
+          <button type="button" class="btn btn-xs btn-primary" ng-show="!user.member">Add</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -7,7 +7,7 @@
 
     Room.all = function() {
       return rooms;
-    }
+    };
 
     Room.getPublic = function() {
       return $firebaseArray(ref.orderByChild('private').equalTo(false));

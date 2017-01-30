@@ -47,7 +47,25 @@
               }
             });
 
-
+            scope.settings = function() {
+              $uibModal.open({
+                animation: true,
+                templateUrl: '/templates/modals/modal_settings.html',
+                controller: 'ModalSettingsCtrl',
+                size: "md",
+                resolve: {
+                  roomId: function() {
+                    return scope.roomId;
+                  },
+                  Room: function() {
+                    return Chat;
+                  },
+                  User: function() {
+                    return User;
+                  }
+                }
+              });
+            };
           };
 
           scope.login = function() {
